@@ -1,0 +1,9 @@
+query Launches($limit: Int!) {
+  launchesPast(limit: $limit, order: "launch_date_local") {
+    id
+    mission_name
+    rocket {
+      rocket_name
+    }
+  }
+}

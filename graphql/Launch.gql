@@ -1,0 +1,13 @@
+query Launch($id: ID!) {
+  launch(id: $id) {
+    id
+    mission_name
+    launch_date_local
+    rocket {
+      rocket_name
+    }
+    links {
+      video_link
+    }
+  }
+}

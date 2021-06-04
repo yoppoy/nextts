@@ -1,0 +1,1 @@
+export const CACHE_REVALIDATE_INTERVAL = 86400
