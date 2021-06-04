@@ -1,0 +1,23 @@
+schema:
+  - '${SPACEX_API_URL}'
+
+generates:
+  ./types/codegenTypes.ts:
+    documents:
+      - ./graphql/**/*.gql
+
+    plugins:
+      - fragment-matcher
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+
+config:
+  avoidOptionals: true
+  exportFragmentSpreadSubTypes: true
+  skipTypeNameForRoot: true
+  namingConvention: change-case-all#pascalCase
+
+hooks:
+  afterAllFileWrite:
+    - $(yarn bin)/prettier --write ./types/codegenTypes.ts
