@@ -8,7 +8,7 @@
     "start": "next start",
     "generate": "DOTENV_CONFIG_PATH=$PWD/.env.local graphql-codegen -r dotenv/config",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
-    "lint": "eslint --ext ts --ext tsx",
+    "lint": "$(yarn bin)/eslint . --ext .ts,.tsx",
     "test": "jest",
     "postinstall": "husky install"
   },
