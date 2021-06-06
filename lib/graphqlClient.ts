@@ -1,7 +1,8 @@
 import { getSdk } from '../types/codegenTypes'
 import { GraphQLClient } from 'graphql-request'
+import { DEFAULT_ENV_VALUES } from '../constants'
 
-const spaceXApiUrl = (process.env.SPACE_API_URL as unknown) as string
+const { SPACE_API_URL = DEFAULT_ENV_VALUES.SPACE_API_URL } = process.env
 
 let client: GraphQLClient
 
@@ -9,11 +10,10 @@ let client: GraphQLClient
 export const graphqlClient = () => {
   client =
     client ??
-    new GraphQLClient(spaceXApiUrl, {
+    new GraphQLClient(SPACE_API_URL, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        Authorization: `Bearer ${spaceXApiUrl}`,
       },
     })
 
